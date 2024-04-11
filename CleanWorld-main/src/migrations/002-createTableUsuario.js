@@ -21,9 +21,9 @@ try{
 
     await connection.end();
     
-    console.log("Table user created!");
+    console.log(`Table user created!`);
     }  catch(error) {
-        console.log(`Error creating table User: ${error}`);
+        console.log(`Error creating table: ${error}`);
     }
 }
 

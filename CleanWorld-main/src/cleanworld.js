@@ -1,8 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser")
-const porta = 3000;
+
+const port = 3000;
 const cleanworld = express();
 
-cleanworld.listen((port) => {
+cleanworld.use(bodyParser.json("application/json")) 
+
+cleanworld.get("/", (req, res) => {
+    res.send("<h1>Ola</h1>");
+})
+
+cleanworld.listen(port, () => {
     console.log(`Servidor rodando: http://localhost:${port}`);
 });

@@ -20,3 +20,5 @@ async function updateDescartante(id, cadastroMateriais, id_usuario ){
 
     await connection.end();
 };
+
+module.exports = { getAllDescartantes };

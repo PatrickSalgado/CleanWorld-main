@@ -7,18 +7,18 @@ async function createTableDescartante(){
 
     await connection.query(`USE ${databaseConfig.database}`);
 
-    await connection.query(`CREATE TABLE IF NOT EXISTIS descartante(
-        id INT NOT NULL AUTO_INCREMENT PRIMARY_KEY,
+    await connection.query(`CREATE TABLE IF NOT EXISTS descartante(
+        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
         cadastroMateriais INT NOT NULL,
         id_usuario INT NOT NULL,
-        FOREIGN KEY id_usuario REFERENCES usuario(id)
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id)
     )`);
 
     await connection.end();
-    console.log("Tabela do Descartante criada com sucesso!");
+    console.log(`Table Descartante created !`);
 
 } catch(error){
-    console.log(`Error: ${error}`);
+    console.log(`Error creating table: ${error}`);
 }
 };
 

@@ -18,7 +18,7 @@ async function createTableFreteiro(){
 
         await connection.end();
 
-        console.log("Table product created!")
+        console.log(`Table Freteiro created !`);
     }catch(error){
         console.log(`Error creating table product: ${error}`);
     }

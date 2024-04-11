@@ -1,6 +1,7 @@
 const mysql = require("mysql2/promise");
 
 const databaseconfig = require("../config/database.js");
+const database = require("../config/database.js");
 
 async function createdatabase() {
     try {
@@ -8,6 +9,7 @@ async function createdatabase() {
             host: databaseconfig.host,
             user: databaseconfig.user,
             password: databaseconfig.password,
+        
         });
     
         await connection.query(
@@ -16,7 +18,7 @@ async function createdatabase() {
     
         await connection.end();
     
-        console.log("Database created!");
+        console.log(`Database created!`);
     } catch (error) {
         console.log(`Error creating database: ${error}`);
     }

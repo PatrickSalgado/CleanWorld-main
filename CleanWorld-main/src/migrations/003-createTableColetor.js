@@ -1,4 +1,4 @@
-const mysql = require("mysql2/promisse");
+const mysql = require("mysql2/promise");
 const databaseConfig = require("../config/database.js");
 
 async function createTableColetor(){
@@ -13,14 +13,14 @@ async function createTableColetor(){
             tipoColetor VARCHAR(255) NOT NULL,
             peso VARCHAR(255) NOT NULL,
             id_usuario INT NOT NULL,
-            FOREIGN KEY (id_usuario) REFERENCES usuario(tipoCadastro)
+            FOREIGN KEY (id_usuario) REFERENCES usuario(id)
         )`);
 
         await connection.end();
 
-        console.log("Tabela do coletor criada com sucesso.")
+        console.log(`Table coletor created !`);
     }catch(error){
-        console.log(`Error: ${error}`);
+        console.log(`Error creating table: ${error}`);
     }
 };
 

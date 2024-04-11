@@ -1,7 +1,9 @@
 const mysql = require("mysql2/promise");
 const databaseConfig = require("../config/database.js");
 
-async function createTableCasatroMateriais(){
+async function createTableCadastroMateriais(){
+
+    try{
     const connection = await mysql.createConnection(databaseConfig);
 
     await connection.query(`USE ${databaseConfig.database}`);
@@ -16,10 +18,12 @@ async function createTableCasatroMateriais(){
         id_descartante INT NOT NULL,
         FOREIGN KEY (id_descartante) REFERENCES descartante(id)
     );`);
-
-
     await connection.end();
+    console.log(`Table cadastroMateriais created`);
 
+    }catch(error){
+        console.log(`Error creating table: ${error}`);
+    }
 };
 
-createTableCasatroMateriais();
+createTableCadastroMateriais();
